@@ -38,6 +38,7 @@ import img6 from "./assets/Copilot_20251227_165955.png";
 import img4 from "./assets/Copilot_20251227_165955.png";
 import img5 from "./assets/Copilot_20251227_170309.png";
 import img3 from "./assets/Copilot_20251228_103349.png";
+import img7 from "./assets/delfiv-company.png";
 import landingPage1 from "./assets/screencapture-ecommerce-test-2025-11-29-14_08_25.png";
 import landingPage4 from "./assets/screencapture-127-0-0-1-5500-index18-html-2025-12-13-13_32_35.png";
 import landingPage5 from "./assets/screencapture-127-0-0-1-5500-FitLife-html-2025-12-24-17_28_10.png";
@@ -436,6 +437,21 @@ useEffect(() => {
       impact: "Professional service presentation • Lead capture form",
       featured: false,
       year: "2024",
+      role: "Front-End Developer"
+    },
+   {
+      title: "DELFIV Company Website",
+      description: "Enterprise software solutions landing page featuring a dark-themed UI, specialized service modules, and multi-regional contact management.",
+      tech: ["React", "Tailwind CSS", "Responsive Design"],
+      image: img7,
+      landingPage: landingPage5,
+      metrics: "30+ Years Experience • 500+ Clients • 24/7 Support",
+      gradient: "from-blue-600 to-purple-600",
+      problem: "A long-standing software firm needed a modern, high-tech digital identity to better represent their integrated management solutions.",
+      solution: "Developed a sleek, dark-mode landing page with categorized service cards, real-time statistics, and a location-specific contact interface.",
+      impact: "Modernized brand authority • Streamlined client support access • Clear service hierarchy",
+      featured: false,
+      year: "2026",
       role: "Front-End Developer"
     }
   ];
