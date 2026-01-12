@@ -44,7 +44,7 @@ import landingPage5 from "./assets/screencapture-127-0-0-1-5500-FitLife-html-202
 import landingPage3 from "./assets/screencapture-127-0-0-1-5500-indexs-html-2025-12-27-12_57_59.png";
 import landingPage7 from "./assets/czn2dxiirs6ld3lqegmr.jpg";
 import landingPage2 from "./assets/screencapture-localhost-5173-2025-12-28-11_18_01 (1).png";
-import profileImage from './assets/cropped_circle_image.png'
+import profileImage from './assets/cropped_circle_image.png';
 
 
 const Profile3DScene = ({ imageUrl }) => {
@@ -580,11 +580,11 @@ useEffect(() => {
   ];
 
   const stats = [
-    { label: "Years Experience", value: "2+", icon: Calendar },
+    { label: "years Experience", value: "1+", icon: Calendar },
     { label: "Projects Completed", value: "6+", icon: CheckCircle },
     { label: "Technologies", value: "30+", icon: Code },
     { label: "Events Organized", value: "8+", icon: Users },
-    { label: "LinkedIn Followers", value: "1,533", icon: Globe },
+    { label: "LinkedIn Followers", value: "+2000", icon: Globe },
     { label: "Bootcamp Score", value: "98.5/100", icon: Trophy }
   ];
 
@@ -973,7 +973,7 @@ useEffect(() => {
 
                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
                   <Briefcase className="text-purple-400 mb-3" size={32} />
-                  <h3 className="text-2xl font-bold mb-2">2+</h3>
+                  <h3 className="text-2xl font-bold mb-2">1+</h3>
                   <p className="text-gray-400">Years Experience</p>
                 </div>
 
