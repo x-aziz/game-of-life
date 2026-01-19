@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import * as THREE from 'three';
+import * as THREE from "three";
 import {
   Github,
   Linkedin,
@@ -32,20 +32,18 @@ import {
   Rocket,
 } from "lucide-react";
 
-import img1 from "./assets/Copilot_20251227_171929.png";
-import img2 from "./assets/Copilot_20251227_165348.png";
-import img6 from "./assets/Copilot_20251227_165955.png";
-import img4 from "./assets/Copilot_20251227_165955.png";
-import img5 from "./assets/Copilot_20251227_170309.png";
-import img3 from "./assets/Copilot_20251228_103349.png";
-import img7 from "./assets/delfiv-company.png";
+import img1 from "./assets/ecommerce-test.png";
+import img2 from "./assets/forver.png";
+import img7 from "./assets/delfiv1.png";
+import waladSalehImg from "./assets/walad-saleh.png";
 import landingPage1 from "./assets/screencapture-ecommerce-test-2025-11-29-14_08_25.png";
 import landingPage4 from "./assets/screencapture-127-0-0-1-5500-index18-html-2025-12-13-13_32_35.png";
 import landingPage5 from "./assets/screencapture-127-0-0-1-5500-FitLife-html-2025-12-24-17_28_10.png";
 import landingPage3 from "./assets/screencapture-127-0-0-1-5500-indexs-html-2025-12-27-12_57_59.png";
 import landingPage7 from "./assets/czn2dxiirs6ld3lqegmr.jpg";
 import landingPage2 from "./assets/screencapture-localhost-5173-2025-12-28-11_18_01 (1).png";
-import profileImage from './assets/cropped_circle_image.png';
+import profileImage from "./assets/cropped_circle_image.png";
+import waladSalehLanding from "./assets/walad-salah-landingpage.png";
 
 
 const Profile3DScene = ({ imageUrl }) => {
@@ -63,7 +61,7 @@ const Profile3DScene = ({ imageUrl }) => {
       50,
       container.clientWidth / container.clientHeight,
       0.1,
-      100
+      100,
     );
     camera.position.z = 7;
 
@@ -91,8 +89,8 @@ const Profile3DScene = ({ imageUrl }) => {
     const geometry = new THREE.BoxGeometry(3.9, 4.3, 1.25);
     const material = new THREE.MeshPhysicalMaterial({
       map: texture,
-      roughness: 0.15, 
-      metalness: 0.05,      
+      roughness: 0.15,
+      metalness: 0.05,
       clearcoat: 0.6,
       clearcoatRoughness: 0.9,
     });
@@ -147,50 +145,49 @@ const Portfolio = () => {
   const [copied, setCopied] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (prev + 1) % projects.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+  const goToSlide = (index) => setCurrentSlide(index);
 
-const [currentSlide, setCurrentSlide] = useState(0);
-const [touchStart, setTouchStart] = useState(0);
-const [touchEnd, setTouchEnd] = useState(0);
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
-const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % projects.length);
-const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
-const goToSlide = (index) => setCurrentSlide(index);
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-const handleTouchStart = (e) => {
-  setTouchStart(e.targetTouches[0].clientX);
-};
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      nextSlide();
+    }
+    if (touchStart - touchEnd < -75) {
+      prevSlide();
+    }
+  };
 
-const handleTouchMove = (e) => {
-  setTouchEnd(e.targetTouches[0].clientX);
-};
-
-const handleTouchEnd = () => {
-  if (touchStart - touchEnd > 75) {
-    nextSlide();
-  }
-  if (touchStart - touchEnd < -75) {
-    prevSlide();
-  }
-};
-
-// Auto-play slider (optional)
-useEffect(() => {
-  const timer = setInterval(nextSlide, 5000);
-  return () => clearInterval(timer);
-}, []);
-
+  // Auto-play slider (optional)
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleEmailClick = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText('said.abd.el.aziz.cs@gmail.com');
+    navigator.clipboard.writeText("said.abd.el.aziz.cs@gmail.com");
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
 
   const copyEmail = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText('said.abd.el.aziz.cs@gmail.com');
+    navigator.clipboard.writeText("said.abd.el.aziz.cs@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -208,7 +205,16 @@ useEffect(() => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setScrollY(window.scrollY);
-          const sections = ["hero", "about", "experience", "projects", "education", "skills", "achievements", "contact"];
+          const sections = [
+            "hero",
+            "about",
+            "experience",
+            "projects",
+            "education",
+            "skills",
+            "achievements",
+            "contact",
+          ];
           const current = sections.find((section) => {
             const element = document.getElementById(section);
             if (element) {
@@ -248,17 +254,23 @@ useEffect(() => {
       duration: "December 2025 - Present",
       type: "Full-time · On-site",
       location: "Algeria",
-      description: "Providing comprehensive IT support, troubleshooting hardware and software issues, and coordinating with teams to ensure operational efficiency.",
+      description:
+        "Providing comprehensive IT support, troubleshooting hardware and software issues, and coordinating with teams to ensure operational efficiency.",
       responsibilities: [
         "Provide IT service desk support for hardware, software, and network issues",
         "Coordinate with team members to ensure system availability",
         "Support internal users with technical issues and system access",
         "Contribute to web-related tasks and technical documentation",
-        "Assist in managing IT operations and prioritizing technical requests"
+        "Assist in managing IT operations and prioritizing technical requests",
       ],
-      skills: ["Technical Support", "IT Service Management", "System Troubleshooting", "Team Collaboration"],
+      skills: [
+        "Technical Support",
+        "IT Service Management",
+        "System Troubleshooting",
+        "Team Collaboration",
+      ],
       gradient: "from-blue-500 to-cyan-600",
-      icon: Briefcase
+      icon: Briefcase,
     },
     {
       title: "Co-leader of IT Department",
@@ -266,23 +278,30 @@ useEffect(() => {
       duration: "December 2023 - Present · 2 years 1 month",
       type: "Part-time · Student Organization",
       location: "Algiers, Algeria",
-      description: "Leading IT initiatives for 100+ student members, organizing tech workshops, hackathons, and coordinating major events including AiQuest'25.",
+      description:
+        "Leading IT initiatives for 100+ student members, organizing tech workshops, hackathons, and coordinating major events including AiQuest'25.",
       responsibilities: [
         "Led IT initiatives for 100+ student members",
         "Organized tech workshops and hackathons (AiQuest'25, SolveX1.0)",
         "Coordinated 36-hour hackathon on AI & cybersecurity",
         "Facilitated networking with industry professionals",
-        "Managed event logistics, mentorship programs, and participant engagement"
+        "Managed event logistics, mentorship programs, and participant engagement",
       ],
       achievements: [
         "Successfully organized 8+ major tech events",
         "Coordinated AiQuest'25 with 20+ teams",
         "Managed multiple graduation ceremonies",
-        "Built partnerships with industry leaders"
+        "Built partnerships with industry leaders",
       ],
-      skills: ["Leadership", "Event Management", "Team Coordination", "Public Speaking", "Community Building"],
+      skills: [
+        "Leadership",
+        "Event Management",
+        "Team Coordination",
+        "Public Speaking",
+        "Community Building",
+      ],
       gradient: "from-purple-500 to-pink-600",
-      icon: Users
+      icon: Users,
     },
     {
       title: "Full-Stack Web Developer",
@@ -290,39 +309,53 @@ useEffect(() => {
       duration: "March 2023 - October 2024 · 1 year 8 months",
       type: "Self-Employed · Remote",
       location: "Algiers, Algeria",
-      description: "Developed responsive web applications, e-commerce platforms, and custom admin dashboards for diverse clients.",
+      description:
+        "Developed responsive web applications, e-commerce platforms, and custom admin dashboards for diverse clients.",
       responsibilities: [
         "Developed responsive web applications using MERN stack and Laravel",
         "Built e-commerce platforms with payment gateway integrations",
         "Created custom admin dashboards with analytics and data visualization",
         "Implemented secure authentication systems (JWT, sessions)",
-        "Optimized database queries and API performance"
+        "Optimized database queries and API performance",
       ],
       achievements: [
         "Delivered 6+ production-ready applications",
         "Achieved 40% faster checkout process in e-commerce projects",
         "Reduced vendor onboarding time by 70%",
-        "Maintained 99.9% authentication success rate"
+        "Maintained 99.9% authentication success rate",
       ],
-      skills: ["MERN Stack", "Laravel", "REST APIs", "Git", "Responsive Design", "Client Communication"],
+      skills: [
+        "MERN Stack",
+        "Laravel",
+        "REST APIs",
+        "Git",
+        "Responsive Design",
+        "Client Communication",
+      ],
       gradient: "from-green-500 to-emerald-600",
-      icon: Code
-    }
+      icon: Code,
+    },
   ];
 
   const projects = [
     {
       title: "Multi-Vendor E-Commerce Platform",
-      description: "Comprehensive marketplace enabling multiple vendors to manage products, track sales, and access analytics dashboards",
-      longDescription: "A comprehensive multi-vendor marketplace bringing multiple specialized shops into one unified platform designed for scalability and high performance. This graduation project demonstrates advanced full-stack development capabilities.",
+      description:
+        "Comprehensive marketplace enabling multiple vendors to manage products, track sales, and access analytics dashboards",
+      longDescription:
+        "A comprehensive multi-vendor marketplace bringing multiple specialized shops into one unified platform designed for scalability and high performance. This graduation project demonstrates advanced full-stack development capabilities.",
       tech: ["Laravel 10", "MySQL", "Bootstrap", "AJAX", "PHP", "Banking API"],
       image: img1,
       landingPage: landingPage1,
-      metrics: "500+ Products Managed • 3 Vendor Categories • Real-time Analytics",
+      metrics:
+        "500+ Products Managed • 3 Vendor Categories • Real-time Analytics",
       gradient: "from-blue-500 to-purple-600",
-      problem: "Small businesses needed an affordable way to sell online without building individual platforms",
-      solution: "Built a centralized marketplace where vendors get instant access to storefront, inventory management, and customer analytics",
-      impact: "500+ products managed • Reduced vendor onboarding time by 70% • Unified shopping experience",
+      problem:
+        "Small businesses needed an affordable way to sell online without building individual platforms",
+      solution:
+        "Built a centralized marketplace where vendors get instant access to storefront, inventory management, and customer analytics",
+      impact:
+        "500+ products managed • Reduced vendor onboarding time by 70% • Unified shopping experience",
       features: [
         "Vendor management system with individual dashboards",
         "Product inventory management with real-time updates",
@@ -330,25 +363,34 @@ useEffect(() => {
         "Unified shopping cart across multiple vendors",
         "Secure payment gateway integration",
         "Role-based access control (Admin, Vendor, Customer)",
-        "Order tracking and management system"
+        "Order tracking and management system",
       ],
-      categories: ["Electrical & Electronic Tools", "Construction & Home Improvement", "Heating & Cooling Spare Parts"],
+      categories: [
+        "Electrical & Electronic Tools",
+        "Construction & Home Improvement",
+        "Heating & Cooling Spare Parts",
+      ],
       featured: true,
       year: "2024",
-      role: "Full-Stack Developer"
+      role: "Full-Stack Developer",
     },
     {
       title: "Forever – MERN E-Commerce",
-      description: "Full-stack shopping platform with secure authentication, cart management, and payment integration",
-      longDescription: "Fully functional e-commerce platform featuring product catalog, shopping cart, and checkout system with seamless user experience and modern architecture.",
+      description:
+        "Full-stack shopping platform with secure authentication, cart management, and payment integration",
+      longDescription:
+        "Fully functional e-commerce platform featuring product catalog, shopping cart, and checkout system with seamless user experience and modern architecture.",
       tech: ["React", "Node.js", "MongoDB", "Express", "JWT", "Stripe"],
       image: img2,
       landingPage: landingPage2,
       metrics: "JWT Auth • RESTful API • 40% Faster Checkout",
       gradient: "from-green-500 to-teal-600",
-      problem: "Modern e-commerce needed seamless checkout experience with secure user management",
-      solution: "Developed full MERN stack application with JWT authentication and optimized cart flow",
-      impact: "40% faster checkout process • 99.9% authentication success rate • Scalable architecture",
+      problem:
+        "Modern e-commerce needed seamless checkout experience with secure user management",
+      solution:
+        "Developed full MERN stack application with JWT authentication and optimized cart flow",
+      impact:
+        "40% faster checkout process • 99.9% authentication success rate • Scalable architecture",
       features: [
         "Dynamic product catalog with search and filtering",
         "Real-time shopping cart updates",
@@ -356,104 +398,56 @@ useEffect(() => {
         "Secure checkout process with Stripe",
         "Order history and tracking",
         "Responsive UI with modern design",
-        "RESTful API architecture"
+        "RESTful API architecture",
       ],
       featured: true,
       year: "2024",
-      role: "Full-Stack Developer"
+      role: "Full-Stack Developer",
     },
     {
-      title: "Minasa Academy - Online Learning Platform",
-      description: "Educational platform facilitating access to computer science courses and managing student enrollments",
-      longDescription: "Educational platform designed to improve accessibility to computer science education with intuitive course management and student enrollment systems.",
-      tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
-      image: img3,
-      landingPage: landingPage3,
-      metrics: "Course Catalog • Student Management • Admin Panel",
-      gradient: "from-orange-500 to-pink-600",
-      problem: "Students needed better access to computer science courses with streamlined enrollment",
-      solution: "Created educational platform with course catalog, enrollment system, and admin management",
-      impact: "Improved accessibility to CS education • Streamlined registration process • User-friendly interface",
-      features: [
-        "Course catalog with detailed descriptions",
-        "Student enrollment management system",
-        "User-friendly interface for easy navigation",
-        "Admin panel for course and user management",
-        "Responsive design for mobile learning",
-        "PHP-based backend with MySQL database"
-      ],
-      featured: true,
-      year: "2024",
-      role: "Full-Stack Developer"
-    },
-    {
-      title: "Chronic Patient Medical Records Platform",
-      description: "Healthcare web platform for managing medical records and services for chronic patients",
-      longDescription: "Healthcare solution designed to manage medical records and improve service delivery for chronic patients, addressing real-world healthcare challenges.",
-      tech: ["Full-Stack", "Database Design", "Healthcare Compliance"],
-      image: img4,
-      landingPage: landingPage7,
-      metrics: "EMR System • Appointment Scheduling • Privacy Compliant",
-      gradient: "from-blue-400 to-cyan-600",
-      problem: "Healthcare providers needed efficient system for chronic patient data management",
-      solution: "Built healthcare platform with EMR system, appointment scheduling, and secure data storage",
-      impact: "Improved patient data accessibility • Enhanced service coordination • HIPAA-compliant security",
-      features: [
-        "Electronic medical records (EMR) system",
-        "Patient data management and history tracking",
-        "Appointment scheduling system",
-        "Healthcare provider access controls",
-        "Secure data storage with privacy compliance"
-      ],
-      featured: false,
-      year: "2024",
-      role: "Team Developer"
-    },
-    {
-      title: "Manage – Project Management UI",
-      description: "Landing page for project management platform with testimonial carousel and feature highlights",
-      tech: ["HTML5", "CSS3", "JavaScript", "Swiper.js"],
-      image: img5,
-      landingPage: landingPage4,
-      metrics: "Testimonial Carousel • Responsive Grid",
-      gradient: "from-orange-500 to-red-600",
-      problem: "Project management tool needed modern landing page to showcase team collaboration features",
-      solution: "Built responsive landing with animated testimonials and clear value propositions",
-      impact: "Engaging testimonial carousel • Clear feature communication",
-      featured: false,
-      year: "2024",
-      role: "Front-End Developer"
-    },
-    {
-      title: "FitLife Landing Page",
-      description: "Modern fitness coaching landing page with hero section, service cards, and contact form",
-      tech: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-      image: img6,
-      landingPage: landingPage5,
-      metrics: "Service Cards • Contact Form • Mobile-First",
-      gradient: "from-green-400 to-emerald-600",
-      problem: "Fitness coach needed professional online presence to attract new clients",
-      solution: "Designed clean landing page highlighting coaching services with integrated contact form",
-      impact: "Professional service presentation • Lead capture form",
-      featured: false,
-      year: "2024",
-      role: "Front-End Developer"
-    },
-   {
       title: "DELFIV Company Website",
-      description: "Enterprise software solutions landing page featuring a dark-themed UI, specialized service modules, and multi-regional contact management.",
+      description:
+        "Enterprise software solutions landing page featuring a dark-themed UI, specialized service modules, and multi-regional contact management.",
       tech: ["React", "Tailwind CSS", "Responsive Design"],
       image: img7,
       landingPage: landingPage5,
       metrics: "30+ Years Experience • 500+ Clients • 24/7 Support",
       gradient: "from-blue-600 to-purple-600",
-      problem: "A long-standing software firm needed a modern, high-tech digital identity to better represent their integrated management solutions.",
-      solution: "Developed a sleek, dark-mode landing page with categorized service cards, real-time statistics, and a location-specific contact interface.",
-      impact: "Modernized brand authority • Streamlined client support access • Clear service hierarchy",
+      problem:
+        "A long-standing software firm needed a modern, high-tech digital identity to better represent their integrated management solutions.",
+      solution:
+        "Developed a sleek, dark-mode landing page with categorized service cards, real-time statistics, and a location-specific contact interface.",
+      impact:
+        "Modernized brand authority • Streamlined client support access • Clear service hierarchy",
       featured: false,
       year: "2026",
-      role: "Front-End Developer"
-    }
+      role: "Front-End Developer",
+    },
+
+    {
+      title: "Fondation El Weld Esalih",
+      description:
+        "Bilingual non-profit platform showcasing youth development programs, educational workshops, and community initiatives with an immersive Arabic-first experience.",
+      tech: ["React", "Tailwind CSS", "Vite", "React Router", "Lucide Icons"],
+      image: waladSalehImg,
+      landingPage: waladSalehLanding,
+      metrics: "10+ Years Impact • 1000+ Youth Served • 50+ Programs Annually",
+      gradient: "from-green-600 to-orange-500",
+      problem:
+        "A transformative youth foundation needed a digital presence to amplify their impact, showcase their programs, and connect with families in both Arabic and French.",
+      solution:
+        "Built a fully responsive, RTL-optimized website featuring an interactive news section with modal popups, bilingual navigation, program showcases, and cultural design elements reflecting their mission.",
+      impact:
+        "Enhanced community reach • Digitized 9 years of programs • Improved parent engagement • Mobile-first accessibility",
+      featured: true,
+      year: "2025",
+      role: "Full-Stack Developer & Designer",
+      category: "Non-Profit",
+      liveUrl: "https://waled-ssalih.netlify.app",
+      githubUrl: "https://github.com/x-aziz/waled-ssalih",
+      personalNote:
+        "Built as a tribute to the organization that shaped my journey since 2016—9 years of gratitude, coded into reality.",
+    },
   ];
 
   const education = [
@@ -464,15 +458,22 @@ useEffect(() => {
       duration: "October 2022 - July 2025",
       status: "Graduated",
       location: "Algiers, Algeria",
-      description: "Focused on practical application and innovation in information systems, with final year project on multi-vendor e-commerce platform.",
+      description:
+        "Focused on practical application and innovation in information systems, with final year project on multi-vendor e-commerce platform.",
       highlights: [
         "Final year project: Multi-vendor e-commerce platform (Laravel 10)",
         "Active member of academic excellence programs",
         "Participated in mobility programs",
-        "Graduation ceremony: December 2025"
+        "Graduation ceremony: December 2025",
       ],
-      skills: ["Problem Solving", "Database Design", "System Analysis", "Software Engineering", "Project Management"],
-      gradient: "from-blue-500 to-purple-600"
+      skills: [
+        "Problem Solving",
+        "Database Design",
+        "System Analysis",
+        "Software Engineering",
+        "Project Management",
+      ],
+      gradient: "from-blue-500 to-purple-600",
     },
     {
       degree: "Full-Stack JavaScript Bootcamp",
@@ -481,13 +482,14 @@ useEffect(() => {
       duration: "March 2024 - September 2024",
       status: "Completed with 98.5/100",
       location: "Algeria",
-      description: "Intensive 6-month bootcamp covering modern web development with MERN stack, achieving exceptional performance as top student.",
+      description:
+        "Intensive 6-month bootcamp covering modern web development with MERN stack, achieving exceptional performance as top student.",
       highlights: [
         "Scored 98.5/100 (Top performer)",
         "Hands-on workshops after each chapter",
         "Mini hackathon with industry professionals",
         "Startup & employability training",
-        "Career development support"
+        "Career development support",
       ],
       curriculum: [
         "HTML5, CSS3, JavaScript ES6+",
@@ -496,9 +498,9 @@ useEffect(() => {
         "MongoDB & Database Design",
         "RESTful API Development",
         "Git/GitHub Version Control",
-        "Responsive Design (Bootstrap, Tailwind CSS)"
+        "Responsive Design (Bootstrap, Tailwind CSS)",
       ],
-      gradient: "from-green-500 to-teal-600"
+      gradient: "from-green-500 to-teal-600",
     },
     {
       degree: "Entrepreneurship 101 Bootcamp",
@@ -507,15 +509,16 @@ useEffect(() => {
       duration: "March 2023 - April 2023",
       status: "Certified",
       location: "Algiers, Algeria",
-      description: "16-hour intensive bootcamp covering entrepreneurship fundamentals, innovation, and business model development.",
+      description:
+        "16-hour intensive bootcamp covering entrepreneurship fundamentals, innovation, and business model development.",
       highlights: [
         "Design Thinking & Innovation",
         "Business Model Canvas (BMC)",
         "Market Research & Analysis",
         "Pitching & Presentation Skills",
-        "No-Code Application Prototype Development"
+        "No-Code Application Prototype Development",
       ],
-      gradient: "from-orange-500 to-pink-600"
+      gradient: "from-orange-500 to-pink-600",
     },
     {
       degree: "Project Management 101 Bootcamp",
@@ -524,16 +527,17 @@ useEffect(() => {
       duration: "March 23-25, 2024",
       status: "Certified",
       location: "Algiers, Algeria",
-      description: "16-hour intensive bootcamp on project management fundamentals, team leadership, and event organization.",
+      description:
+        "16-hour intensive bootcamp on project management fundamentals, team leadership, and event organization.",
       highlights: [
         "Project Management Building Blocks",
         "Event Organization & Coordination",
         "Communication Skills in Teams",
         "Emotional Intelligence in Leadership",
-        "Risk Management & Problem Solving"
+        "Risk Management & Problem Solving",
       ],
-      gradient: "from-purple-500 to-indigo-600"
-    }
+      gradient: "from-purple-500 to-indigo-600",
+    },
   ];
 
   const skills = [
@@ -547,52 +551,57 @@ useEffect(() => {
     { name: "Laravel", level: 88, category: "backend" },
     { name: "PHP", level: 85, category: "backend" },
     { name: "MongoDB", level: 82, category: "database" },
-    { name: "MySQL", level: 80, category: "database" }
+    { name: "MySQL", level: 80, category: "database" },
   ];
 
   const achievements = [
     {
       title: "Top Performer - Code213 Bootcamp",
-      description: "Achieved 98.5/100 in intensive Full-Stack JavaScript bootcamp",
+      description:
+        "Achieved 98.5/100 in intensive Full-Stack JavaScript bootcamp",
       icon: Trophy,
       gradient: "from-yellow-500 to-orange-600",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "Graduated Computer Science",
-      description: "Bachelor's Degree in Information Systems from HIS University",
+      description:
+        "Bachelor's Degree in Information Systems from HIS University",
       icon: GraduationCap,
       gradient: "from-blue-500 to-purple-600",
-      year: "2025"
+      year: "2025",
     },
     {
       title: "Promoted to Co-leader",
-      description: "IT Department Co-leader at No Limit Club student organization",
+      description:
+        "IT Department Co-leader at No Limit Club student organization",
       icon: Users,
       gradient: "from-green-500 to-teal-600",
-      year: "2023"
+      year: "2023",
     },
     {
       title: "6+ Production Projects",
-      description: "Successfully delivered full-stack applications to real clients",
+      description:
+        "Successfully delivered full-stack applications to real clients",
       icon: Rocket,
       gradient: "from-pink-500 to-rose-600",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "Event Organizer",
-      description: "Organized 8+ major tech events including AiQuest'25 hackathon",
+      description:
+        "Organized 8+ major tech events including AiQuest'25 hackathon",
       icon: Calendar,
       gradient: "from-purple-500 to-indigo-600",
-      year: "2024-2025"
+      year: "2024-2025",
     },
     {
-      title: "1,533 LinkedIn Followers",
+      title: "2000 LinkedIn Followers",
       description: "Built strong professional network and personal brand",
       icon: Globe,
       gradient: "from-cyan-500 to-blue-600",
-      year: "2025"
-    }
+      year: "2025",
+    },
   ];
 
   const stats = [
@@ -601,7 +610,7 @@ useEffect(() => {
     { label: "Technologies", value: "30+", icon: Code },
     { label: "Events Organized", value: "8+", icon: Users },
     { label: "LinkedIn Followers", value: "+2000", icon: Globe },
-    { label: "Bootcamp Score", value: "98.5/100", icon: Trophy }
+    { label: "Bootcamp Score", value: "98.5/100", icon: Trophy },
   ];
 
   const ExperienceModal = ({ experience, onClose }) => {
@@ -611,7 +620,6 @@ useEffect(() => {
       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div className="bg-gradient-to-br from-gray-900 to-black border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
           <div className="sticky top-0 bg-black/50 backdrop-blur-xl border-b border-white/10 p-6 flex justify-between items-center z-10">
-     
             <div>
               <h3 className="text-2xl font-bold">{experience.title}</h3>
               <p className="text-gray-400">{experience.company}</p>
@@ -635,18 +643,28 @@ useEffect(() => {
                 <MapPin size={16} />
                 {experience.location}
               </span>
-              <span className="px-3 py-1 bg-white/10 rounded-full">{experience.type}</span>
+              <span className="px-3 py-1 bg-white/10 rounded-full">
+                {experience.type}
+              </span>
             </div>
 
             <p className="text-gray-300 text-lg">{experience.description}</p>
 
             {experience.responsibilities && (
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-blue-400">Key Responsibilities</h4>
+                <h4 className="text-lg font-semibold mb-3 text-blue-400">
+                  Key Responsibilities
+                </h4>
                 <ul className="space-y-2">
                   {experience.responsibilities.map((resp, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-300">
-                      <CheckCircle size={20} className="text-green-400 flex-shrink-0 mt-0.5" />
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-gray-300"
+                    >
+                      <CheckCircle
+                        size={20}
+                        className="text-green-400 flex-shrink-0 mt-0.5"
+                      />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -656,11 +674,19 @@ useEffect(() => {
 
             {experience.achievements && (
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-green-400">Achievements</h4>
+                <h4 className="text-lg font-semibold mb-3 text-green-400">
+                  Achievements
+                </h4>
                 <ul className="space-y-2">
                   {experience.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-300">
-                      <Trophy size={20} className="text-yellow-400 flex-shrink-0 mt-0.5" />
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-gray-300"
+                    >
+                      <Trophy
+                        size={20}
+                        className="text-yellow-400 flex-shrink-0 mt-0.5"
+                      />
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -696,7 +722,9 @@ useEffect(() => {
           <div className="sticky top-0 bg-black/50 backdrop-blur-xl border-b border-white/10 p-6 flex justify-between items-center z-10">
             <div>
               <h3 className="text-2xl font-bold">{project.title}</h3>
-              <p className="text-gray-400">{project.role} • {project.year}</p>
+              <p className="text-gray-400">
+                {project.role} • {project.year}
+              </p>
             </div>
             <button
               onClick={onClose}
@@ -757,8 +785,14 @@ useEffect(() => {
                 <h4 className="text-lg font-semibold mb-4">Key Features</h4>
                 <ul className="grid md:grid-cols-2 gap-3">
                   {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-300">
-                      <CheckCircle size={20} className="text-green-400 flex-shrink-0 mt-0.5" />
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-gray-300"
+                    >
+                      <CheckCircle
+                        size={20}
+                        className="text-green-400 flex-shrink-0 mt-0.5"
+                      />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -810,7 +844,16 @@ useEffect(() => {
 
       <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-4 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-2xl max-w-[90vw] overflow-x-auto">
         <div className="flex gap-4 items-center whitespace-nowrap">
-          {["hero", "about", "experience", "projects", "education", "skills", "achievements", "contact"].map((section) => (
+          {[
+            "hero",
+            "about",
+            "experience",
+            "projects",
+            "education",
+            "skills",
+            "achievements",
+            "contact",
+          ].map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}
@@ -825,9 +868,6 @@ useEffect(() => {
           ))}
         </div>
       </nav>
-
-
-
 
       <section
         id="hero"
@@ -850,9 +890,7 @@ useEffect(() => {
             </span>
           </div>
 
-        <Profile3DScene 
-          imageUrl={profileImage}
-        />
+          <Profile3DScene imageUrl={profileImage} />
           <h1 className="text-6xl md:text-9xl font-bold mb-6 ">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent -mt-8">
               Said Abdelaziz
@@ -864,7 +902,9 @@ useEffect(() => {
           </p>
 
           <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-4">
-            I help businesses build fast, scalable web applications that convert users into customers. Specialized in MERN stack, Laravel, and conversion-optimized interfaces.
+            I help businesses build fast, scalable web applications that convert
+            users into customers. Specialized in MERN stack, Laravel, and
+            conversion-optimized interfaces.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center text-sm text-gray-400 mb-12">
@@ -911,7 +951,10 @@ useEffect(() => {
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-6 max-w-4xl mx-auto mb-12">
             {stats.map((stat, i) => (
-              <div key={i} className="p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div
+                key={i}
+                className="p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10"
+              >
                 <stat.icon className="mx-auto mb-2 text-blue-400" size={24} />
                 <p className="text-2xl font-bold mb-1">{stat.value}</p>
                 <p className="text-xs text-gray-400">{stat.label}</p>
@@ -965,10 +1008,20 @@ useEffect(() => {
                 </span>
               </h2>
               <p className="text-xl text-gray-400 leading-relaxed">
-                Hi, I'm <span className="text-white font-semibold">Said Abdelaziz</span>  a 22-year-old full-stack developer from Algeria with a fresh Computer Science degree and a passion for building fast, scalable, and user-friendly web applications.
+                Hi, I'm{" "}
+                <span className="text-white font-semibold">Said Abdelaziz</span>{" "}
+                a 22-year-old Frontend developer from Algeria with a fresh
+                Computer Science degree and a passion for building fast,
+                scalable, and user-friendly web applications.
               </p>
               <p className="text-xl text-gray-400 leading-relaxed">
-                I specialize in <span className="text-white font-semibold">MERN stack and Laravel</span>, helping small businesses, startups, and independent sellers turn their ideas into reliable products  from e-commerce platforms to custom dashboards and secure back-end systems.
+                I specialize in{" "}
+                <span className="text-white font-semibold">
+                  MERN stack and Laravel
+                </span>
+                , helping small businesses, startups, and independent sellers
+                turn their ideas into reliable products from e-commerce
+                platforms to custom dashboards and secure back-end systems.
               </p>
 
               <div className="p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-white/10">
@@ -976,7 +1029,13 @@ useEffect(() => {
                   Why Work With Me?
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  I don't just write code  I focus on <span className="text-white">clean architecture</span>, <span className="text-white">performance optimization</span>, and <span className="text-white">business goals</span>. As a recent graduate with top academic performance (98.5/100 in Code213 bootcamp), I bring fresh knowledge of the latest technologies combined with real-world project experience.
+                  I don't just write code I focus on{" "}
+                  <span className="text-white">clean architecture</span>,{" "}
+                  <span className="text-white">performance optimization</span>,
+                  and <span className="text-white">business goals</span>. As a
+                  recent graduate with top academic performance (98.5/100 in
+                  Code213 bootcamp), I bring fresh knowledge of the latest
+                  technologies combined with real-world project experience.
                 </p>
               </div>
 
@@ -1027,14 +1086,16 @@ useEffect(() => {
                   <div>
                     <p className="text-2xl font-bold">BSc Computer Science</p>
                     <p className="text-gray-400">Information Systems</p>
-                    <p className="text-sm text-gray-500 mt-2">HIS University • July 2025</p>
+                    <p className="text-sm text-gray-500 mt-2">
+                      HIS University • July 2025
+                    </p>
                   </div>
                 </div>
               </div>
 
-                <h3 className="text-2xl font-semibold text-white mt-8 mb-4">
-                  Spoken Languages
-                 </h3>
+              <h3 className="text-2xl font-semibold text-white mt-8 mb-4">
+                Spoken Languages
+              </h3>
               <div className="grid grid-cols-3 gap-4">
                 <div className="p-4 bg-white/5 rounded-xl border border-white/10 text-center">
                   <Globe size={24} className="mx-auto mb-2 text-blue-400" />
@@ -1062,7 +1123,8 @@ useEffect(() => {
             </span>
           </h2>
           <p className="text-center text-gray-400 text-xl mb-16 max-w-2xl mx-auto">
-            Professional journey spanning IT support, leadership, and full-stack development
+            Professional journey spanning IT support, leadership, and full-stack
+            development
           </p>
 
           <div className="space-y-8">
@@ -1073,7 +1135,9 @@ useEffect(() => {
                 className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer p-8"
               >
                 <div className="flex items-start gap-6">
-                  <div className={`p-4 bg-gradient-to-br ${exp.gradient} rounded-2xl`}>
+                  <div
+                    className={`p-4 bg-gradient-to-br ${exp.gradient} rounded-2xl`}
+                  >
                     <exp.icon size={32} />
                   </div>
 
@@ -1083,7 +1147,10 @@ useEffect(() => {
                         <h3 className="text-2xl font-bold mb-2">{exp.title}</h3>
                         <p className="text-gray-400 text-lg">{exp.company}</p>
                       </div>
-                      <ExternalLink className="text-gray-400 group-hover:text-white transition-colors" size={20} />
+                      <ExternalLink
+                        className="text-gray-400 group-hover:text-white transition-colors"
+                        size={20}
+                      />
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-4">
@@ -1095,7 +1162,9 @@ useEffect(() => {
                         <MapPin size={16} />
                         {exp.location}
                       </span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full">{exp.type}</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full">
+                        {exp.type}
+                      </span>
                     </div>
 
                     <p className="text-gray-300 mb-4">{exp.description}</p>
@@ -1123,121 +1192,128 @@ useEffect(() => {
         </div>
       </section>
 
-
-
-<section id="projects" className="min-h-screen px-6 py-20 overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-5xl md:text-6xl font-bold mb-4 text-center">
-      <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-        Featured Work
-      </span>
-    </h2>
-    <p className="text-center text-gray-400 text-xl mb-16 max-w-2xl mx-auto">
-      Real projects solving real problems. <span className="text-blue-400">Swipe</span> or click arrows to explore.
-    </p>
-
-    {/* Slider Container */}
-    <div className="relative">
-      <div 
-        className="overflow-hidden rounded-3xl"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+      <section
+        id="projects"
+        className="min-h-screen px-6 py-20 overflow-hidden"
       >
-        <div 
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {projects.map((project, index) => (
-            <div key={index} className="min-w-full px-2">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-center">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Featured Work
+            </span>
+          </h2>
+          <p className="text-center text-gray-400 text-xl mb-16 max-w-2xl mx-auto">
+            Real projects solving real problems.{" "}
+            <span className="text-blue-400">Swipe</span> or click arrows to
+            explore.
+          </p>
+
+          {/* Slider Container */}
+          <div className="relative">
+            <div
+              className="overflow-hidden rounded-3xl"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
-                onClick={() => setSelectedProject(project)}
-                className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs font-semibold">
-                    Featured
-                  </div>
-                )}
+                {projects.map((project, index) => (
+                  <div key={index} className="min-w-full px-2">
+                    <div
+                      onClick={() => setSelectedProject(project)}
+                      className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+                    >
+                      {project.featured && (
+                        <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs font-semibold">
+                          Featured
+                        </div>
+                      )}
 
-                <div className="grid md:grid-cols-2 gap-6 p-8">
-                  {/* Image */}
-                  <div className="aspect-video overflow-hidden rounded-2xl relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br opacity-60 mix-blend-multiply" />
-                  </div>
+                      <div className="grid md:grid-cols-2 gap-6 p-8">
+                        {/* Image */}
+                        <div className="aspect-video overflow-hidden rounded-2xl relative">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-br opacity-60 mix-blend-multiply" />
+                        </div>
 
-                  {/* Content */}
-                  <div className="flex flex-col justify-center space-y-4">
-                    <div className="flex items-start justify-between">
-                      <h3 className="text-3xl font-bold">{project.title}</h3>
-                      <ExternalLink
-                        className="text-gray-400 group-hover:text-white transition-colors flex-shrink-0"
-                        size={24}
-                      />
+                        {/* Content */}
+                        <div className="flex flex-col justify-center space-y-4">
+                          <div className="flex items-start justify-between">
+                            <h3 className="text-3xl font-bold">
+                              {project.title}
+                            </h3>
+                            <ExternalLink
+                              className="text-gray-400 group-hover:text-white transition-colors flex-shrink-0"
+                              size={24}
+                            />
+                          </div>
+                          <p className="text-gray-400 text-lg">
+                            {project.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tech.map((tech, i) => (
+                              <span
+                                key={i}
+                                className="px-3 py-1 bg-white/10 rounded-full text-sm border border-white/20"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          <p className="text-sm text-blue-400 pt-2 flex items-center gap-2">
+                            <TrendingUp size={16} />
+                            {project.metrics}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-gray-400 text-lg">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-white/10 rounded-full text-sm border border-white/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm text-blue-400 pt-2 flex items-center gap-2">
-                      <TrendingUp size={16} />
-                      {project.metrics}
-                    </p>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full border border-white/20 transition-all hover:scale-110 z-10"
-        aria-label="Previous project"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full border border-white/20 transition-all hover:scale-110 z-10"
-        aria-label="Next project"
-      >
-        <ChevronRight size={24} />
-      </button>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full border border-white/20 transition-all hover:scale-110 z-10"
+              aria-label="Previous project"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full border border-white/20 transition-all hover:scale-110 z-10"
+              aria-label="Next project"
+            >
+              <ChevronRight size={24} />
+            </button>
 
-      {/* Dots Navigation */}
-      <div className="flex justify-center gap-2 mt-8">
-        {projects.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              currentSlide === index
-                ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-purple-600"
-                : "w-3 h-3 bg-white/20 hover:bg-white/40"
-            }`}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
+            {/* Dots Navigation */}
+            <div className="flex justify-center gap-2 mt-8">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    currentSlide === index
+                      ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-purple-600"
+                      : "w-3 h-3 bg-white/20 hover:bg-white/40"
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
 
-    {/* Optional: Project Grid Below Slider */}
-    {/* <div className="mt-16">
+          {/* Optional: Project Grid Below Slider */}
+          {/* <div className="mt-16">
       <h3 className="text-2xl font-bold mb-8 text-center text-gray-400">All Projects</h3>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
@@ -1264,8 +1340,8 @@ useEffect(() => {
         ))}
       </div>
     </div> */}
-  </div>
-</section>
+        </div>
+      </section>
       {/* <section id="projects" className="min-h-screen px-6 py-20 relative">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-bold mb-4 text-center">
@@ -1341,7 +1417,8 @@ useEffect(() => {
             </span>
           </h2>
           <p className="text-center text-gray-400 text-xl mb-16 max-w-2xl mx-auto">
-            Continuous learning through academic excellence and professional development
+            Continuous learning through academic excellence and professional
+            development
           </p>
 
           <div className="space-y-8">
@@ -1350,8 +1427,10 @@ useEffect(() => {
                 key={index}
                 className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 p-8"
               >
-                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${edu.gradient} opacity-10 blur-3xl`} />
-                
+                <div
+                  className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${edu.gradient} opacity-10 blur-3xl`}
+                />
+
                 <div className="relative">
                   <div className="flex items-start justify-between mb-4">
                     <div>
@@ -1382,11 +1461,19 @@ useEffect(() => {
 
                   {edu.highlights && (
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold mb-3 text-blue-400">Highlights</h4>
+                      <h4 className="text-lg font-semibold mb-3 text-blue-400">
+                        Highlights
+                      </h4>
                       <ul className="grid md:grid-cols-2 gap-3">
                         {edu.highlights.map((highlight, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-300">
-                            <CheckCircle size={18} className="text-green-400 flex-shrink-0 mt-0.5" />
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-gray-300"
+                          >
+                            <CheckCircle
+                              size={18}
+                              className="text-green-400 flex-shrink-0 mt-0.5"
+                            />
                             <span className="text-sm">{highlight}</span>
                           </li>
                         ))}
@@ -1396,7 +1483,9 @@ useEffect(() => {
 
                   {edu.curriculum && (
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold mb-3 text-purple-400">Curriculum</h4>
+                      <h4 className="text-lg font-semibold mb-3 text-purple-400">
+                        Curriculum
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {edu.curriculum.map((item, i) => (
                           <span
@@ -1412,7 +1501,9 @@ useEffect(() => {
 
                   {edu.skills && (
                     <div>
-                      <h4 className="text-lg font-semibold mb-3">Skills Developed</h4>
+                      <h4 className="text-lg font-semibold mb-3">
+                        Skills Developed
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {edu.skills.map((skill, i) => (
                           <span
@@ -1439,7 +1530,7 @@ useEffect(() => {
               Tech Stack
             </span>
           </h2>
-          
+
           <div className="space-y-8 mb-16">
             {skills.map((skill, index) => (
               <div key={index} className="group">
@@ -1464,9 +1555,15 @@ useEffect(() => {
                 React, Tailwind CSS, Bootstrap, jQuery, Responsive Design, Figma
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">HTML5</span>
-                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">CSS3</span>
-                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">JavaScript</span>
+                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">
+                  HTML5
+                </span>
+                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">
+                  CSS3
+                </span>
+                <span className="px-2 py-1 bg-blue-500/20 rounded text-xs">
+                  JavaScript
+                </span>
               </div>
             </div>
             <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-500/50 transition-colors">
@@ -1477,20 +1574,34 @@ useEffect(() => {
                 Node.js, Express, Laravel, PHP, RESTful APIs, JWT Authentication
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">API Design</span>
-                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">Security</span>
-                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">Performance</span>
+                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">
+                  API Design
+                </span>
+                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">
+                  Security
+                </span>
+                <span className="px-2 py-1 bg-purple-500/20 rounded text-xs">
+                  Performance
+                </span>
               </div>
             </div>
             <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-pink-500/50 transition-colors">
-              <h3 className="text-xl font-bold mb-4 text-pink-400">Database & Tools</h3>
+              <h3 className="text-xl font-bold mb-4 text-pink-400">
+                Database & Tools
+              </h3>
               <p className="text-gray-400 mb-4">
                 MongoDB, MySQL, Database Design, Git/GitHub, VS Code, Postman
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">SQL</span>
-                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">NoSQL</span>
-                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">Version Control</span>
+                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">
+                  SQL
+                </span>
+                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">
+                  NoSQL
+                </span>
+                <span className="px-2 py-1 bg-pink-500/20 rounded text-xs">
+                  Version Control
+                </span>
               </div>
             </div>
           </div>
@@ -1514,16 +1625,26 @@ useEffect(() => {
                 key={index}
                 className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] p-8"
               >
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${achievement.gradient} opacity-20 blur-2xl`} />
-                
+                <div
+                  className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${achievement.gradient} opacity-20 blur-2xl`}
+                />
+
                 <div className="relative">
-                  <div className={`inline-flex p-4 bg-gradient-to-br ${achievement.gradient} rounded-2xl mb-4`}>
+                  <div
+                    className={`inline-flex p-4 bg-gradient-to-br ${achievement.gradient} rounded-2xl mb-4`}
+                  >
                     <achievement.icon size={32} />
                   </div>
-                  
-                  <h3 className="text-xl font-bold mb-2">{achievement.title}</h3>
-                  <p className="text-gray-400 mb-4">{achievement.description}</p>
-                  <span className="text-sm text-gray-500">{achievement.year}</span>
+
+                  <h3 className="text-xl font-bold mb-2">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4">
+                    {achievement.description}
+                  </p>
+                  <span className="text-sm text-gray-500">
+                    {achievement.year}
+                  </span>
                 </div>
               </div>
             ))}
@@ -1564,9 +1685,12 @@ useEffect(() => {
                   <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto">
                     <Send size={32} className="text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Message Sent!
+                  </h3>
                   <p className="text-gray-400">
-                    Thanks for reaching out! I'll get back to you as soon as possible. 🚀
+                    Thanks for reaching out! I'll get back to you as soon as
+                    possible. 🚀
                   </p>
                   <button
                     onClick={() => window.location.reload()}
@@ -1581,11 +1705,17 @@ useEffect(() => {
                   className="space-y-6 bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
                 >
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold mb-2 text-gray-300"
+                    >
                       Your Name
                     </label>
                     <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                      <User
+                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                        size={20}
+                      />
                       <input
                         type="text"
                         id="name"
@@ -1598,11 +1728,17 @@ useEffect(() => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold mb-2 text-gray-300"
+                    >
                       Your Email
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                      <Mail
+                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                        size={20}
+                      />
                       <input
                         type="email"
                         id="email"
@@ -1615,11 +1751,17 @@ useEffect(() => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold mb-2 text-gray-300"
+                    >
                       Your Message
                     </label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-4 top-6 text-gray-400" size={20} />
+                      <MessageSquare
+                        className="absolute left-4 top-6 text-gray-400"
+                        size={20}
+                      />
                       <textarea
                         id="message"
                         name="message"
@@ -1661,9 +1803,14 @@ useEffect(() => {
                 onClick={handleEmailClick}
                 className="block w-full text-left p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all hover:scale-105 group"
               >
-                <Mail className="mb-4 text-blue-400 group-hover:scale-110 transition-transform" size={32} />
+                <Mail
+                  className="mb-4 text-blue-400 group-hover:scale-110 transition-transform"
+                  size={32}
+                />
                 <p className="text-sm text-gray-400 mb-2">Email</p>
-                <p className="font-semibold text-lg">said.abd.el.aziz.cs@gmail.com</p>
+                <p className="font-semibold text-lg">
+                  said.abd.el.aziz.cs@gmail.com
+                </p>
                 {emailCopied && (
                   <p className="text-sm text-green-400 mt-2 flex items-center gap-2">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
@@ -1676,7 +1823,10 @@ useEffect(() => {
                 href="tel:+213669085027"
                 className="block p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:scale-105 group"
               >
-                <Phone className="mb-4 text-purple-400 group-hover:scale-110 transition-transform" size={32} />
+                <Phone
+                  className="mb-4 text-purple-400 group-hover:scale-110 transition-transform"
+                  size={32}
+                />
                 <p className="text-sm text-gray-400 mb-2">Phone</p>
                 <p className="font-semibold text-lg">+213 669 085 027</p>
                 <p className="font-semibold text-lg">+213 553 643 785</p>
@@ -1685,7 +1835,9 @@ useEffect(() => {
               <div className="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
                 <MapPin className="mb-4 text-pink-400" size={32} />
                 <p className="text-sm text-gray-400 mb-2">Location</p>
-                <p className="font-semibold text-lg">Bab Ezzouar, Algiers, Algeria</p>
+                <p className="font-semibold text-lg">
+                  Bab Ezzouar, Algiers, Algeria
+                </p>
                 <p className="text-sm text-gray-500 mt-2">GMT+1 Timezone</p>
               </div>
 
@@ -1716,15 +1868,12 @@ useEffect(() => {
 
       <footer className="border-t border-white/10 py-8 text-center text-gray-400">
         <p>© 2025 Said Abdelaziz. Built with React & Tailwind CSS.</p>
-        <p className="text-sm text-gray-500 mt-2">Full-Stack Developer • Computer Science Graduate • Algeria</p>
+        <p className="text-sm text-gray-500 mt-2">
+          Full-Stack Developer • Computer Science Graduate • Algeria
+        </p>
       </footer>
- 
     </div>
   );
 };
 
-export default Portfolio
-
-
-
-
+export default Portfolio;
