@@ -990,7 +990,7 @@ const Portfolio = () => {
               className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20 flex items-center gap-2"
             >
               <Download size={20} />
-              Download Pirimi – Project Overview
+              Download CV
             </a>
           </div>
 
