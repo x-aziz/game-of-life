@@ -35,6 +35,7 @@ import {
 import img1 from "./assets/ecommerce-test.png";
 import img2 from "./assets/forver.png";
 import img7 from "./assets/delfiv1.png";
+import pirimiImg from "./assets/image.png";
 import waladSalehImg from "./assets/walad-saleh.png";
 import landingPage1 from "./assets/screencapture-ecommerce-test-2025-11-29-14_08_25.png";
 import landingPage4 from "./assets/screencapture-127-0-0-1-5500-index18-html-2025-12-13-13_32_35.png";
@@ -44,7 +45,7 @@ import landingPage7 from "./assets/czn2dxiirs6ld3lqegmr.jpg";
 import landingPage2 from "./assets/screencapture-localhost-5173-2025-12-28-11_18_01 (1).png";
 import profileImage from "./assets/cropped_circle_image.png";
 import waladSalehLanding from "./assets/walad-salah-landingpage.png";
-
+import pirimiLanding from "./assets/primi-landingpage.png";
 
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
@@ -74,13 +75,13 @@ const Profile3DScene = ({ imageUrl }) => {
     // LIGHTS
     scene.add(new THREE.AmbientLight(0xffffff, 3));
 
-      // const keyLight = new THREE.DirectionalLight(0x60a5fa, 1.4);
-      // keyLight.position.set(5, 5, 5);
-      // scene.add(keyLight);
+    // const keyLight = new THREE.DirectionalLight(0x60a5fa, 1.4);
+    // keyLight.position.set(5, 5, 5);
+    // scene.add(keyLight);
 
-      // const rimLight = new THREE.DirectionalLight(0xec4899, 0.6);
-      // rimLight.position.set(0, 0, -5);
-      // scene.add(rimLight);
+    // const rimLight = new THREE.DirectionalLight(0xec4899, 0.6);
+    // rimLight.position.set(0, 0, -5);
+    // scene.add(rimLight);
 
     // TEXTURE
     const texture = new THREE.TextureLoader().load(imageUrl);
@@ -448,6 +449,40 @@ const Portfolio = () => {
       personalNote:
         "Built as a tribute to the organization that shaped my journey since 2016—9 years of gratitude, coded into reality.",
     },
+    {
+      title: "PIRIMI — Social Impact Platform",
+      description:
+        "A localized digital solution designed to reduce food waste in Algeria by connecting stores, consumers, and charities.",
+      longDescription:
+        "PIRIMI is a mission-driven platform tailored for the Algerian market. It solves the gap between near-expiry food surplus and food insecurity, accounting for local constraints like cash payments and limited logistics to ensure maximum social impact.",
+      tech: ["React", "Tailwind CSS", "Node.js", "MongoDB", "Impact Analytics"],
+      image: pirimiImg, // Make sure to import the thumbnail generated
+      landingPage: pirimiLanding,
+      metrics: "Pilot Ready • 0% Delivery Complexity • 100% Cash-Friendly",
+      gradient: "from-emerald-500 to-teal-700",
+      problem:
+        "High food waste in stores while purchasing power drops; existing global apps fail in Algeria due to digital maturity and payment barriers.",
+      solution:
+        "A simplified, trust-based marketplace where stores sell or donate near-expiry food for in-store pickup, supporting a cash-based economy.",
+      impact:
+        "Structured food donations • Reduced financial losses for local shops • Access to affordable food for families • Environmental waste reduction",
+      downloadUrl: "/PirimiProjectOverview.pdf",
+
+      features: [
+        "Store dashboard for near-expiry inventory management",
+        "Consumer reservation system with cash-on-pickup flow",
+        "Verified Association portal for food donation claims",
+        "Manual partner verification for high trust/safety",
+        "Localized UX for low-digital maturity users",
+        "Impact tracking (Kg of food saved / DA saved)",
+      ],
+      categories: ["Social Impact", "FoodTech", "Sustainability"],
+      featured: true,
+      year: "2026",
+      role: "Founder & Full-Stack Developer",
+      personalNote:
+        "Designed not by copying foreign models, but by adapting tech to the unique social and economic pulse of Algeria.",
+    },
   ];
 
   const education = [
@@ -736,6 +771,16 @@ const Portfolio = () => {
           </div>
 
           <div className="p-8 space-y-8">
+            {project.downloadUrl && (
+              <a
+                href={project.downloadUrl}
+                download
+                className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 rounded-full transition-all duration-300 border border-emerald-500/20 font-medium"
+              >
+                <Download size={20} />
+                Download Project Overview
+              </a>
+            )}
             <div>
               {project.landingPage ? (
                 <img
@@ -945,7 +990,7 @@ const Portfolio = () => {
               className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20 flex items-center gap-2"
             >
               <Download size={20} />
-              Download CV
+              Download Pirimi – Project Overview
             </a>
           </div>
 
@@ -1271,6 +1316,19 @@ const Portfolio = () => {
                             <TrendingUp size={16} />
                             {project.metrics}
                           </p>
+                          {project.downloadUrl && (
+                            <div className="pt-2">
+                              <a
+                                href={project.downloadUrl}
+                                download="/PirimiProjectOverview.pdf"
+                                
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-sm border border-white/10 transition-colors"
+                              >
+                                <Download size={16} /> PDF Overview
+                              </a>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
