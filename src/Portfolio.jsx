@@ -424,7 +424,6 @@ const Portfolio = () => {
       year: "2026",
       role: "Front-End Developer",
     },
-
     {
       title: "Fondation El Weld Esalih",
       description:
@@ -983,6 +982,12 @@ const Portfolio = () => {
               className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20"
             >
               View Work
+            </a>
+            <a
+              href="https://abdelaziz-business-card.vercel.app/"
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20"
+            >
+              View Business Card
             </a>
             <a
               href="/Said Abdelaziz - Resume.pdf"
