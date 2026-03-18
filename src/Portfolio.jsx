@@ -56,6 +56,8 @@ import aiTrackingJob from "./assets/AITracking.png";
 import lumatex2000Site from "./assets/lumatex2000Site.png";
 import healthcare from "./assets/healthCare.png";
 import minasaAcademy from "./assets/Minasa-Academy.png";
+import Kothbane from "./assets/kothban.png";
+
 
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
@@ -537,7 +539,7 @@ const Portfolio = () => {
       longDescription:
         "Foreign tourists visit South Algeria more than Algerians themselves. Kothban (كثبان) was built as an ideathon MVP to fix this — creating trust, discovery, and safe access to Algeria's Sahara for domestic visitors and the diaspora.",
       tech: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
-      image: img1,
+      image: Kothbane,
       metrics: "Multilingual AR/FR/EN • DA-Based Pricing • SOS Safety Features",
       gradient: "from-amber-500 to-orange-600",
       problem:
