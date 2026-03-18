@@ -54,6 +54,7 @@ import universityApplicationTracker from "./assets/university-application-tracke
 import greenloop from "./assets/green-loop.png";
 import aiTrackingJob from "./assets/AITracking.png";
 import lumatex2000Site from "./assets/lumatex2000Site.png";
+import healthcare from "./assets/healthCare.png";
 
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
@@ -289,7 +290,7 @@ const Portfolio = () => {
     },
     {
       title: "Team Lead — Sales & Commercial Operations",
-      company: "LUMATEX2000 (Family Business)",
+      company: "LUMATEX2000",
       duration: "February 2020 – November 2025 · 5 years 10 months",
       type: "Part-time · On-site",
       location: "Algiers, Ouargla, Hassi Massoud",
@@ -621,7 +622,7 @@ const Portfolio = () => {
       longDescription:
         "A team-built healthcare platform designed to address the real challenge of managing chronic patient data in Algeria — improving accessibility, coordination, and privacy of medical records.",
       tech: ["Full-Stack Web", "MySQL", "PHP", "Secure Authentication"],
-      image: img1,
+      image: healthcare,
       metrics: "EMR System • Appointment Scheduling • Role-Based Access",
       gradient: "from-red-500 to-pink-600",
       problem:
@@ -644,7 +645,7 @@ const Portfolio = () => {
     {
       title: "LUMATEX2000 — Business Website",
       description:
-        "Official website for my family's electrical components distribution business. First digital presence for a company operating across Algiers, Ouargla, and Hassi Massoud.",
+        "Official website for electrical components distribution business. First digital presence for a company operating across Algiers, Ouargla, and Hassi Massoud.",
       longDescription:
         "LUMATEX2000 had operated for years across three Algerian cities with no online presence. I built their official website to showcase products, establish brand identity, and lay the foundation for future e-commerce integration.",
       tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
