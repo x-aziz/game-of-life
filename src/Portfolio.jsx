@@ -57,8 +57,6 @@ import lumatex2000Site from "./assets/lumatex2000Site.png";
 import healthcare from "./assets/healthCare.png";
 import minasaAcademy from "./assets/Minasa-Academy.png";
 import Kothbane from "./assets/kothban.png";
-
-
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
 
