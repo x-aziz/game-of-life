@@ -55,6 +55,7 @@ import greenloop from "./assets/green-loop.png";
 import aiTrackingJob from "./assets/AITracking.png";
 import lumatex2000Site from "./assets/lumatex2000Site.png";
 import healthcare from "./assets/healthCare.png";
+import minasaAcademy from "./assets/Minasa-Academy.png";
 
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
@@ -595,7 +596,7 @@ const Portfolio = () => {
       longDescription:
         "Minasa Academy was built to make computer science education more accessible. The platform manages course catalogs, student enrollments, and admin operations with a clean, mobile-friendly interface.",
       tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
-      image: img1,
+      image: minasaAcademy,
       metrics: "Student Enrollment System • Admin Panel • Responsive Design",
       gradient: "from-blue-500 to-indigo-600",
       problem:
