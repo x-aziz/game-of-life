@@ -46,6 +46,14 @@ import landingPage2 from "./assets/screencapture-localhost-5173-2025-12-28-11_18
 import profileImage from "./assets/cropped_circle_image.png";
 import waladSalehLanding from "./assets/walad-salah-landingpage.png";
 import pirimiLanding from "./assets/primi-landingpage.png";
+import lumatexLanding from "./assets/lumatex2000-dz.png";
+import universityTrackingLanding from "./assets/abdelaziz-university-application1.png";
+import greenloopLanding from "./assets/greenloopsvercel-app.png";
+
+import universityApplicationTracker from "./assets/university-application-tracker.png";
+import greenloop from "./assets/green-loop.png";
+import aiTrackingJob from "./assets/AITracking.png";
+import lumatex2000Site from "./assets/lumatex2000Site.png";
 
 const Profile3DScene = ({ imageUrl }) => {
   const mountRef = useRef(null);
@@ -250,27 +258,65 @@ const Portfolio = () => {
 
   const experiences = [
     {
-      title: "IT Service Desk",
+      title: "Full-Stack Developer",
       company: "DELFIV",
-      duration: "December 2025 - Present",
+      duration: "December 2025 – Present · 4 months",
       type: "Full-time · On-site",
-      location: "Algeria",
+      location: "Algiers, Algeria",
       description:
-        "Providing comprehensive IT support, troubleshooting hardware and software issues, and coordinating with teams to ensure operational efficiency.",
+        "Promoted from IT Service Desk to Full-Stack Developer after 2 months. Building production systems including an e-learning platform and marketplace.",
       responsibilities: [
-        "Provide IT service desk support for hardware, software, and network issues",
-        "Coordinate with team members to ensure system availability",
-        "Support internal users with technical issues and system access",
-        "Contribute to web-related tasks and technical documentation",
-        "Assist in managing IT operations and prioritizing technical requests",
+        "Developing full-stack applications using MERN stack and Laravel",
+        "Contributing to e-learning platform (course management, user systems)",
+        "Building marketplace platform for product and vendor management",
+        "Updated and optimized the company's official website",
+        "Collaborating cross-functionally to ship production-ready features",
+      ],
+      achievements: [
+        "Promoted to Full-Stack Developer after only 2 months",
+        "Promoted from IT Service Desk based on technical performance",
       ],
       skills: [
+        "React",
+        "Node.js",
+        "Laravel",
+        "MongoDB",
         "Technical Support",
-        "IT Service Management",
-        "System Troubleshooting",
         "Team Collaboration",
       ],
       gradient: "from-blue-500 to-cyan-600",
+      icon: Briefcase,
+    },
+    {
+      title: "Team Lead — Sales & Commercial Operations",
+      company: "LUMATEX2000 (Family Business)",
+      duration: "February 2020 – November 2025 · 5 years 10 months",
+      type: "Part-time · On-site",
+      location: "Algiers, Ouargla, Hassi Massoud",
+      description:
+        "Started as a 15-month commercial intern at age 17, promoted to Sales Representative, then to Team Lead managing 5-person team across 3 cities while completing my Computer Science degree.",
+      responsibilities: [
+        "Led 5-person sales team across 2 locations simultaneously",
+        "Managed supplier negotiations and strategic pricing decisions",
+        "Oversaw inventory planning and daily financial workflows",
+        "Maintained customer relationships across Algiers, Ouargla, Hassi Massoud",
+        "Supported digital presence by building the company's official website",
+      ],
+      achievements: [
+        "Promoted from intern to Team Lead within 3 years",
+        "Managed commercial operations across 3 Algerian cities",
+        "Built LUMATEX2000 official website — first digital presence",
+        "Maintained operations while completing full-time university degree",
+      ],
+      skills: [
+        "Team Leadership",
+        "Commercial Negotiation",
+        "Inventory Management",
+        "Supplier Relations",
+        "Strategic Pricing",
+        "Financial Operations",
+      ],
+      gradient: "from-amber-500 to-orange-600",
       icon: Briefcase,
     },
     {
@@ -482,6 +528,204 @@ const Portfolio = () => {
       personalNote:
         "Designed not by copying foreign models, but by adapting tech to the unique social and economic pulse of Algeria.",
     },
+    {
+      title: "Kothban — Algerian Sahara Tourism Platform",
+      description:
+        "Digital platform revitalizing domestic tourism by connecting northern Algerians with licensed southern travel agencies, certified guides, and traditional artisans.",
+      longDescription:
+        "Foreign tourists visit South Algeria more than Algerians themselves. Kothban (كثبان) was built as an ideathon MVP to fix this — creating trust, discovery, and safe access to Algeria's Sahara for domestic visitors and the diaspora.",
+      tech: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
+      image: img1,
+      metrics: "Multilingual AR/FR/EN • DA-Based Pricing • SOS Safety Features",
+      gradient: "from-amber-500 to-orange-600",
+      problem:
+        "Algeria's Sahara is one of the world's most spectacular destinations, yet most Algerians have never visited due to fragmented information, lack of trust, and no digital access to southern service providers.",
+      solution:
+        "A trust-based marketplace connecting visitors with licensed agencies, certified guides, and verified artisans — with social discovery, secure booking, and SOS safety features adapted for desert travel.",
+      impact:
+        "Promotes domestic tourism • Empowers southern local economy • Makes Algerian Sahara accessible to Algerians",
+      features: [
+        "Social discovery through real Sahara traveller stories",
+        "Secure booking of tours and certified local guides",
+        "Artisan marketplace for traditional southern crafts",
+        "Direct messaging and verified community reviews",
+        "SOS and safety features designed for desert travel",
+        "Multilingual support (AR / FR / EN) with DA-based pricing",
+      ],
+      featured: true,
+      year: "2024",
+      role: "Founder & Full-Stack Developer",
+      personalNote:
+        "Built because I grew up in Ghardaia. The Sahara is not a tourist attraction — it is home. It deserves to be seen by Algerians first.",
+    },
+    {
+      title: "AI-Powered Job Application Tracker",
+      description:
+        "SaaS tool that tracks every job application, analyzes resumes with Claude AI, detects skill gaps, generates cover letters, and preps for interviews.",
+      longDescription:
+        "Job hunting in 2026 requires strategy, not just effort. This tracker combines smart dashboard management with Claude AI to help applicants understand how well their profile matches each role, then act on that insight immediately.",
+      tech: ["React", "Tailwind CSS", "Claude AI", "Node.js"],
+      image: aiTrackingJob,
+      metrics:
+        "AI Resume Analysis • ATS Optimization • Cover Letter Generation",
+      gradient: "from-violet-500 to-purple-700",
+      problem:
+        "Job applicants send CVs blindly with no feedback on fit, no interview preparation, and no salary negotiation guidance — resulting in low response rates and missed opportunities.",
+      solution:
+        "An intelligent tracker powered by Claude AI that analyzes resume-job fit, identifies skill gaps, generates tailored cover letters, prepares interview questions, and provides salary negotiation insights.",
+      impact:
+        "Transforms passive job hunting into data-driven strategy • Reduces application-to-interview gap • Designed for future SaaS expansion",
+      features: [
+        "Smart dashboard tracking every application, interview, and offer",
+        "AI resume analysis powered by Claude AI",
+        "Skill gap detection and ATS optimization",
+        "AI-generated customizable cover letters",
+        "Interview prep with AI-generated role-specific questions",
+        "Salary insights and negotiation tips",
+      ],
+      featured: true,
+      year: "2026",
+      role: "Founder & Full-Stack Developer",
+    },
+    {
+      title: "Minasa Academy — Online Course Platform",
+      description:
+        "Educational platform facilitating access to computer science courses with student enrollment management and responsive admin panel.",
+      longDescription:
+        "Minasa Academy was built to make computer science education more accessible. The platform manages course catalogs, student enrollments, and admin operations with a clean, mobile-friendly interface.",
+      tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+      image: img1,
+      metrics: "Student Enrollment System • Admin Panel • Responsive Design",
+      gradient: "from-blue-500 to-indigo-600",
+      problem:
+        "Students needed a centralized, easy-to-navigate platform to discover and enroll in computer science courses without technical barriers.",
+      solution:
+        "Built a full-stack educational platform with course catalog, enrollment management, admin dashboard, and mobile-first responsive design.",
+      impact:
+        "Improved accessibility to CS education • Streamlined registration process • Clean UX for non-technical users",
+      features: [
+        "Course catalog with detailed descriptions",
+        "Student enrollment management system",
+        "Admin panel for course and user management",
+        "Responsive design for mobile learning",
+        "PHP backend with MySQL database",
+      ],
+      featured: false,
+      year: "2024",
+      role: "Full-Stack Developer",
+    },
+    {
+      title: "Chronic Patient Medical Records Platform",
+      description:
+        "Healthcare web platform for managing medical records and services for chronic patients. Built as a team project with appointment scheduling and secure data storage.",
+      longDescription:
+        "A team-built healthcare platform designed to address the real challenge of managing chronic patient data in Algeria — improving accessibility, coordination, and privacy of medical records.",
+      tech: ["Full-Stack Web", "MySQL", "PHP", "Secure Authentication"],
+      image: img1,
+      metrics: "EMR System • Appointment Scheduling • Role-Based Access",
+      gradient: "from-red-500 to-pink-600",
+      problem:
+        "Chronic patients and healthcare providers in Algeria lack a unified digital system for tracking medical history, scheduling appointments, and coordinating care.",
+      solution:
+        "Built a secure web platform with electronic medical records, appointment scheduling, role-based provider access, and privacy-compliant data storage.",
+      impact:
+        "Improved patient data accessibility • Better care coordination for chronic diseases • Secure, role-based healthcare data management",
+      features: [
+        "Electronic medical records (EMR) system",
+        "Patient data management and history tracking",
+        "Appointment scheduling system",
+        "Healthcare provider access controls",
+        "Secure data storage with privacy compliance",
+      ],
+      featured: false,
+      year: "2024",
+      role: "Team Developer",
+    },
+    {
+      title: "LUMATEX2000 — Business Website",
+      description:
+        "Official website for my family's electrical components distribution business. First digital presence for a company operating across Algiers, Ouargla, and Hassi Massoud.",
+      longDescription:
+        "LUMATEX2000 had operated for years across three Algerian cities with no online presence. I built their official website to showcase products, establish brand identity, and lay the foundation for future e-commerce integration.",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      image: lumatex2000Site,
+      metrics: "Product Showcase • Brand Identity • Foundation for E-Commerce",
+      gradient: "from-orange-500 to-amber-600",
+      problem:
+        "A well-established electrical components distributor had no digital presence despite serving clients across multiple Algerian cities for years.",
+      solution:
+        "Designed and built an official company website showcasing product categories, brand identity, and commercial activity — serving as foundation for future e-commerce and online sales.",
+      impact:
+        "First digital presence for the business • Professional brand authority • Ready for future e-commerce expansion",
+      features: [
+        "Product category showcase",
+        "Company identity and brand presentation",
+        "Contact and location information",
+        "Responsive design for all devices",
+        "Foundation for future e-commerce integration",
+      ],
+      featured: false,
+      year: "2023",
+      role: "Full-Stack Developer",
+      personalNote:
+        "This was personal. I grew up in this business. Building their website was my way of giving back to what built me.",
+    },
+    {
+      title: "GREEN LOOP — 1st Place Hackathon Winner",
+      description:
+        "Circular economy platform connecting restaurants, drivers, and farms to transform organic waste into premium fertilizer. Won 1st place against 38 teams.",
+      longDescription:
+        "Built in 38 hours at the national Eco Hackathon 2026. GREEN LOOP is a circular economy platform with multi-role dashboards for restaurants, drivers, farms, and admins. The judges chose us not for our code quality — but because our business model was the only one in the room that made financial sense.",
+      tech: ["React.js", "JavaScript", "Context API", "Responsive Design"],
+      image: greenloop, // replace with your GREEN LOOP image when you have it
+      metrics: "🏆 1st Place • 38 Teams Defeated • Built in 38 Hours",
+      gradient: "from-green-500 to-emerald-600",
+      problem:
+        "Restaurants pay to dispose of organic waste while farms pay high prices for chemical fertilizers. Two industries bleeding money with no connection between them.",
+      solution:
+        "A three-sided marketplace connecting restaurants (waste supply), drivers (logistics), and farms (demand) with automated conversion tracking and a gamified Green Points reward system.",
+      impact:
+        "1st place nationally • Simulates 30% waste-to-fertilizer conversion • Creates economic incentives for sustainable waste management",
+      features: [
+        "Multi-role dashboard system (Restaurant, Driver, Farm, Admin)",
+        "Real-time pickup tracking (Uber-style logistics)",
+        "Automated Green Points reward engine for restaurants",
+        "Transparent nutrient profiles (NPK breakdown) for farms",
+        "Complete circular flow visualization",
+        "Built and deployed in 38 hours",
+      ],
+      featured: true,
+      year: "2026",
+      role: "Lead Frontend Developer & Product Architect",
+    },
+    // {
+    //   title: "University Application Tracker",
+    //   description:
+    //     "AI-powered platform to manage UK university applications — deadlines, deposits, visa timelines, offer statuses, all in one place. Built for my own MSc application process.",
+    //   longDescription:
+    //     "Built out of necessity. Managing visa deadlines, deposit timings, university offers, and IELTS results simultaneously required a system. So I built one — powered by Claude AI for document analysis and application guidance.",
+    //   tech: ["React", "Tailwind CSS", "Claude AI", "Vercel"],
+    //   image: universityApplicationTracker,
+    //   metrics: "Live • Used Daily • Impressed UK Students",
+    //   gradient: "from-purple-500 to-blue-600",
+    //   problem:
+    //     "UK postgraduate applications involve simultaneous tracking of visa timelines, bank deposits, IELTS deadlines, university offers, and CAS letters — impossible to manage on paper.",
+    //   solution:
+    //     "Built a personal SaaS-style tracker with AI integration to analyze documents, track deadlines, and guide through each step of the UK student visa process.",
+    //   impact:
+    //     "Used daily for real application management • Shared with UK-based Algerian student who responded 'WAWWWW — Ure on the right path'",
+    //   features: [
+    //     "University offer status tracking",
+    //     "Visa timeline and deadline management",
+    //     "Bank deposit countdown (28-day requirement)",
+    //     "IELTS result tracking",
+    //     "AI-powered document analysis",
+    //     "Clean dashboard with all application stages",
+    //   ],
+    //   featured: true,
+    //   year: "2026",
+    //   role: "Founder & Full-Stack Developer",
+    // },
   ];
 
   const education = [
@@ -590,61 +834,78 @@ const Portfolio = () => {
 
   const achievements = [
     {
-      title: "Top Performer - Code213 Bootcamp",
+      title: "1st Place — National Eco Hackathon 2026",
       description:
-        "Achieved 98.5/100 in intensive Full-Stack JavaScript bootcamp",
+        "Won Algeria's national entrepreneurship hackathon with GREEN LOOP, defeating 38 competing teams in 38 hours",
       icon: Trophy,
       gradient: "from-yellow-500 to-orange-600",
+      year: "2026",
+    },
+    {
+      title: "Top Performer — Code213 Bootcamp",
+      description:
+        "Scored 98.5/100 in intensive 6-month Full-Stack JavaScript bootcamp highest in cohort",
+      icon: Award,
+      gradient: "from-blue-500 to-purple-600",
       year: "2024",
     },
     {
-      title: "Graduated Computer Science",
+      title: "Promoted to Full-Stack Developer",
       description:
-        "Bachelor's Degree in Information Systems from HIS University",
+        "Promoted from IT Service Desk to Full-Stack Developer at DELFIV after only 2 months",
+      icon: Rocket,
+      gradient: "from-cyan-500 to-blue-600",
+      year: "2026",
+    },
+    {
+      title: "Team Lead at 21",
+      description:
+        "Promoted to manage a 5-person sales team across 3 Algerian cities while completing university degree",
+      icon: Users,
+      gradient: "from-amber-500 to-orange-600",
+      year: "2022",
+    },
+    {
+      title: "BSc Computer Science",
+      description:
+        "Graduated with Bachelor's Degree in Information Systems from HIS University",
       icon: GraduationCap,
-      gradient: "from-blue-500 to-purple-600",
+      gradient: "from-green-500 to-teal-600",
       year: "2025",
     },
     {
-      title: "Promoted to Co-leader",
+      title: "+3,301 LinkedIn Followers",
       description:
-        "IT Department Co-leader at No Limit Club student organization",
-      icon: Users,
-      gradient: "from-green-500 to-teal-600",
-      year: "2023",
+        "Built authentic professional brand from zero 6,804 impressions on single post",
+      icon: Globe,
+      gradient: "from-cyan-500 to-blue-600",
+      year: "2026",
     },
     {
-      title: "6+ Production Projects",
+      title: "8+ Tech Events Organized",
       description:
-        "Successfully delivered full-stack applications to real clients",
-      icon: Rocket,
-      gradient: "from-pink-500 to-rose-600",
-      year: "2024",
-    },
-    {
-      title: "Event Organizer",
-      description:
-        "Organized 8+ major tech events including AiQuest'25 hackathon",
+        "Co-led IT Department at No Limit Club, organizing AiQuest'25 (36-hour hackathon) and 7+ other events",
       icon: Calendar,
       gradient: "from-purple-500 to-indigo-600",
       year: "2024-2025",
     },
     {
-      title: "2000 LinkedIn Followers",
-      description: "Built strong professional network and personal brand",
-      icon: Globe,
-      gradient: "from-cyan-500 to-blue-600",
-      year: "2025",
+      title: "Met Professors : Riyadh Baghdadi",
+      description:
+        "Algeria → Sorbonne → MIT AI researcher. His words: Success is about empowering others.",
+      icon: BookOpen,
+      gradient: "from-pink-500 to-rose-600",
+      year: "2026",
     },
   ];
 
   const stats = [
-    { label: "years Experience", value: "1+", icon: Calendar },
-    { label: "Projects Completed", value: "6+", icon: CheckCircle },
+    { label: "Years Experience", value: "5+", icon: Calendar },
+    { label: "Projects Completed", value: "8+", icon: CheckCircle },
     { label: "Technologies", value: "30+", icon: Code },
     { label: "Events Organized", value: "8+", icon: Users },
-    { label: "LinkedIn Followers", value: "+2000", icon: Globe },
-    { label: "Bootcamp Score", value: "98.5/100", icon: Trophy },
+    { label: "LinkedIn Followers", value: "3,301", icon: Globe },
+    { label: "Hackathon Winner", value: "1st", icon: Trophy },
   ];
 
   const ExperienceModal = ({ experience, onClose }) => {
@@ -928,9 +1189,12 @@ const Portfolio = () => {
         />
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <div className="mb-8 mt-5">
+          <div className="mb-8 mt-5 gap-2  justify-center items-center flex-wrap flex">
             <span className=" px-4 py-2 bg-blue-500/20 rounded-full text-blue-400 text-sm border border-blue-500/30">
               Available for Opportunities
+            </span>
+            <span className="px-4 py-2 bg-yellow-500/20 rounded-full text-yellow-400 text-sm border border-yellow-500/30">
+              🏆 1st Place · National Hackathon 2026
             </span>
           </div>
 
@@ -942,7 +1206,8 @@ const Portfolio = () => {
           </h1>
 
           <p className="text-2xl md:text-3xl text-gray-400 mb-4">
-            Full-Stack Developer & Computer Science Graduate
+            Full-Stack Developer & Future Entrepreneur · 🏆 National Hackathon
+            Winner
           </p>
 
           <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-4">
@@ -990,7 +1255,7 @@ const Portfolio = () => {
               View Business Card
             </a>
             <a
-              href="/Said Abdelaziz - Resume.pdf"
+              href="/Said_Abdelaziz_Resume_2026.pdf"
               download
               className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20 flex items-center gap-2"
             >
@@ -1012,12 +1277,13 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="flex gap-6 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="https://github.com/x-aziz"
               className="text-gray-400 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              title="GitHub"
             >
               <Github size={24} />
             </a>
@@ -1026,13 +1292,116 @@ const Portfolio = () => {
               className="text-gray-400 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              title="LinkedIn"
             >
               <Linkedin size={24} />
+            </a>
+            <a
+              href="https://wa.me/213669085027"
+              className="text-gray-400 hover:text-green-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com/said_abdelazize"
+              className="text-gray-400 hover:text-pink-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com/aziz.said.923519"
+              className="text-gray-400 hover:text-blue-500 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/said_abdelaziz"
+              className="text-gray-400 hover:text-sky-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="X / Twitter"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a
+              href="https://t.me/said_abdelaziz"
+              className="text-gray-400 hover:text-sky-500 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Telegram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+              </svg>
+            </a>
+            <a
+              href="https://discord.com/users/aziz0272"
+              className="text-gray-400 hover:text-indigo-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.104.12 18.15.15 18.18a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+              </svg>
             </a>
             <button
               onClick={copyEmail}
               className="text-gray-400 hover:text-white transition-colors relative"
-              title="Copy email address"
+              title="Copy email"
             >
               <Mail size={24} />
               {copied && (
@@ -1060,9 +1429,10 @@ const Portfolio = () => {
               <p className="text-xl text-gray-400 leading-relaxed">
                 Hi, I'm{" "}
                 <span className="text-white font-semibold">Said Abdelaziz</span>{" "}
-                a 22-year-old Frontend developer from Algeria with a fresh
-                Computer Science degree and a passion for building fast,
-                scalable, and user-friendly web applications.
+                a 22-year-old Full-Stack Developer and entrepreneur from
+                Algeria. I won 1st place at the 2026 national Eco Hackathon
+                beating 38 teams. I managed a 5-person sales team across 3
+                cities at 21. I build systems that solve real problems.
               </p>
               <p className="text-xl text-gray-400 leading-relaxed">
                 I specialize in{" "}
@@ -1092,13 +1462,13 @@ const Portfolio = () => {
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
                   <Code className="text-blue-400 mb-3" size={32} />
-                  <h3 className="text-2xl font-bold mb-2">6+</h3>
+                  <h3 className="text-2xl font-bold mb-2">10+</h3>
                   <p className="text-gray-400">Completed Projects</p>
                 </div>
 
                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
                   <Briefcase className="text-purple-400 mb-3" size={32} />
-                  <h3 className="text-2xl font-bold mb-2">1+</h3>
+                  <h3 className="text-2xl font-bold mb-2">5+</h3>
                   <p className="text-gray-400">Years Experience</p>
                 </div>
 
@@ -1110,7 +1480,7 @@ const Portfolio = () => {
 
                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
                   <Globe className="text-pink-400 mb-3" size={32} />
-                  <h3 className="text-2xl font-bold mb-2">+2000</h3>
+                  <h3 className="text-2xl font-bold mb-2">+3,301</h3>
                   <p className="text-gray-400">LinkedIn Followers</p>
                 </div>
               </div>
@@ -1929,9 +2299,10 @@ const Portfolio = () => {
       </section>
 
       <footer className="border-t border-white/10 py-8 text-center text-gray-400">
-        <p>© 2025 Said Abdelaziz. Built with React & Tailwind CSS.</p>
+        <p>© 2026 Said Abdelaziz. Built with React & Tailwind CSS.</p>
         <p className="text-sm text-gray-500 mt-2">
-          Full-Stack Developer • Computer Science Graduate • Algeria
+          Full-Stack Developer · Future Entrepreneur · 🏆 National Hackathon
+          Winner · Algeria
         </p>
       </footer>
     </div>
